@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | Central Academy</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --card-bg: #141414;
+            --primary-red: #e50914;
+            --primary-red-hover: #b80710;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-color: #262626;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+        header { padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); background-color: rgba(10,10,10,0.95); }
+        .logo { font-size: 22px; font-weight: 800; color: var(--primary-red); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
+        nav a { color: var(--text-white); text-decoration: none; margin-left: 25px; font-size: 14px; font-weight: 600; }
+        nav a:hover, nav a.active { color: var(--primary-red); }
+        .btn-header { background-color: var(--primary-red); padding: 8px 18px; border-radius: 4px; }
+        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 32px; color: var(--primary-red); text-transform: uppercase; text-align: center; margin-bottom: 10px; }
+        .section-subtitle { color: var(--text-gray); text-align: center; margin-bottom: 50px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .pricing-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 40px 30px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+        .pricing-card.featured { border: 2px solid var(--primary-red); box-shadow: 0 0 25px rgba(229, 9, 20, 0.25); }
+        .badge { position: absolute; top: -14px; right: 25px; background-color: var(--primary-red); color: #fff; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 20px; }
+        .price { font-size: 36px; font-weight: bold; margin: 15px 0; }
+        .price span { font-size: 14px; color: var(--text-gray); }
+        .features-list { list-style: none; margin-bottom: 30px; }
+        .features-list li { font-size: 14px; color: #ddd; margin-bottom: 12px; }
+        .btn-card { display: block; text-align: center; padding: 12px 0; border-radius: 4px; text-decoration: none; font-weight: bold; border: 1px solid var(--primary-red); color: var(--primary-red); }
+        .btn-card.solid { background-color: var(--primary-red); color: #fff; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Central Academy</a>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html">Khóa học</a>
+            <a href="membership.html" class="active">Membership</a>
+            <a href="booking.html" class="btn-header">Đặt lịch Studio</a>
+        </nav>
+    </header>
+
+    <section>
+        <h1 class="section-title">STUDIO PRIVATE MEMBERSHIP</h1>
+        <p class="section-subtitle">Hệ sinh thái sáng tạo dành riêng cho Artist & Producer nghiêm túc</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div>
+                    <h3>1. ROOKIE MEMBERSHIP</h3>
+                    <div class="price">499.000đ <span>/ tháng</span></div>
+                    <ul class="features-list">
+                        <li>✓ 3 giờ thu âm / tháng</li>
+                        <li>✓ Mix & Master tiêu chuẩn</li>
+                        <li>✓ Giảm 10% khi book thêm giờ</li>
+                    </ul>
+                </div>
+                <a href="booking.html" class="btn-card">ĐĂNG KÝ ROOKIE</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="badge">BEST SELLER</div>
+                <div>
+                    <h3>2. ARTIST MEMBERSHIP</h3>
+                    <div class="price">1.490.000đ <span>/ tháng</span></div>
+                    <ul class="features-list">
+                        <li>✓ 8 giờ thu âm / tháng</li>
+                        <li>✓ Giảm 15% các dịch vụ khác</li>
+                        <li>✓ Ưu tiên lịch Booking giờ đẹp</li>
+                    </ul>
+                </div>
+                <a href="booking.html" class="btn-card solid">ĐĂNG KÝ ARTIST</a>
+            </div>
+
+            <div class="pricing-card">
+                <div>
+                    <h3>3. PRO ARTIST MEMBERSHIP</h3>
+                    <div class="price">2.990.000đ <span>/ tháng</span></div>
+                    <ul class="features-list">
+                        <li>✓ 15 giờ thu âm / tháng (Ưu tiên lịch đêm)</li>
+                        <li>✓ 2 bản Mix Vocal miễn phí</li>
+                        <li>✓ Giảm 20% Beat Lease / Exclusive</li>
+                    </ul>
+                </div>
+                <a href="booking.html" class="btn-card">TRỞ THÀNH PRO ARTIST</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
