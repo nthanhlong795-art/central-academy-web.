@@ -3,273 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central Academy | Đào Tạo Producer & Studio Private</title>
-    <!-- CSS nhận diện thương hiệu -->
+    <title>Central Academy | Hệ Sinh Thái Sản Xuất Âm Nhạc Chuyên Nghiệp</title>
     <style>
         :root {
-            --bg-dark: #0f0f0f;
-            --card-bg: #1a1a1a;
+            --bg-dark: #0a0a0a;
+            --card-bg: #141414;
             --primary-red: #e50914;
+            --primary-red-hover: #b80710;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
+            --border-color: #262626;
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-white);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
+
+        /* HEADER & NAVIGATION */
         header {
-            padding: 20px 50px;
+            background-color: rgba(10, 10, 10, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 18px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
         }
+
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--primary-red);
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-decoration: none;
         }
+
         nav a {
             color: var(--text-white);
             text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-red);
+        }
+
+        .btn-header {
+            background-color: var(--primary-red);
+            color: var(--text-white);
+            padding: 8px 18px;
+            border-radius: 4px;
             margin-left: 20px;
-            font-weight: 500;
         }
+
+        .btn-header:hover {
+            background-color: var(--primary-red-hover);
+            color: var(--text-white);
+        }
+
+        /* HERO SECTION */
         .hero {
+            padding: 100px 20px 80px;
             text-align: center;
-            padding: 100px 20px;
+            background: radial-gradient(circle at center, #220809 0%, var(--bg-dark) 70%);
         }
+
         .hero h1 {
             font-size: 48px;
-            margin-bottom: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
+
         .hero p {
-            color: var(--text-gray);
             font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin: 0 auto 30px;
         }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
         .btn-primary {
             background-color: var(--primary-red);
             color: var(--text-white);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
+            padding: 14px 28px;
             border-radius: 4px;
-            display: inline-block;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
-        /* CSS CHƯƠNG TRÌNH ƯU ĐÃI GẮN BÓ */
-        .loyalty-section {
-            padding: 60px 20px;
-            background-color: #141414;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
+
+        .btn-primary:hover {
+            background-color: var(--primary-red-hover);
         }
-        .loyalty-container {
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-white);
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-white);
+        }
+
+        /* SECTION COMMON */
+        section {
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .loyalty-title {
+
+        .section-header {
             text-align: center;
-            font-size: 28px;
-            color: var(--text-white);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-        .loyalty-subtitle {
-            text-align: center;
-            color: var(--primary-red);
-            font-weight: 500;
             margin-bottom: 50px;
         }
-        .timeline-rewards {
+
+        .section-title {
+            font-size: 32px;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* MEMBERSHIP PRICING GRID */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-red);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-red);
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.25);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -14px;
+            right: 25px;
+            background-color: var(--primary-red);
+            color: var(--text-white);
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .price span {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 12px;
+        }
+
+        .btn-card {
+            display: block;
+            text-align: center;
+            padding: 12px 0;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-card.outline {
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
+        }
+
+        .btn-card.outline:hover {
+            background-color: var(--primary-red);
+            color: var(--text-white);
+        }
+
+        .btn-card.solid {
+            background-color: var(--primary-red);
+            color: var(--text-white);
+        }
+
+        .btn-card.solid:hover {
+            background-color: var(--primary-red-hover);
+        }
+
+        /* REWARDS TIMELINE */
+        .rewards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-bottom: 50px;
+            margin-top: 40px;
         }
+
         .reward-card {
             background-color: var(--card-bg);
-            border: 1px solid #333;
-            border-radius: 8px;
+            border: 1px solid var(--border-color);
             padding: 30px 20px;
+            border-radius: 8px;
             text-align: center;
-            position: relative;
-            transition: transform 0.3s ease;
         }
-        .reward-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-red);
-        }
-        .reward-card.highlight {
-            border: 1px dashed var(--primary-red);
-            background: linear-gradient(180deg, #1f1414 0%, #1a1a1a 100%);
-        }
-        .badge-time {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 3px 12px;
-            border-radius: 12px;
-            letter-spacing: 1px;
-        }
-        .badge-time.gold {
-            background-color: var(--primary-red);
-        }
+
         .reward-icon {
-            font-size: 40px;
+            font-size: 36px;
             margin-bottom: 15px;
-            margin-top: 10px;
         }
-        .reward-title {
-            font-size: 18px;
-            color: var(--text-white);
-            margin-bottom: 10px;
-        }
-        .reward-desc {
-            font-size: 13px;
-            color: var(--text-gray);
-            line-height: 1.5;
-            margin: 0;
-        }
-        .philosophy-box {
-            background-color: #000;
-            border-left: 3px solid var(--primary-red);
-            padding: 25px 30px;
-            border-radius: 0 8px 8px 0;
-        }
-        .philosophy-box h4 {
+
+        .reward-tag {
             color: var(--primary-red);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 16px;
+            font-size: 12px;
+            font-weight: bold;
             letter-spacing: 1px;
+            margin-bottom: 8px;
         }
-        .philosophy-box p {
-            color: #ccc;
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-gray);
             font-size: 14px;
-            line-height: 1.6;
-            margin: 0;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
-        <div class="logo">Central Academy</div>
+        <a href="index.html" class="logo">Central Academy</a>
         <nav>
-            <a href="index.html">Trang chủ</a>
+            <a href="index.html" class="active">Trang chủ</a>
             <a href="courses.html">Khóa học</a>
-            <a href="membership.html">Membership</a>
-            <a href="booking.html">Đặt lịch Studio</a>
+            <a href="booking.html" class="btn-header">Đặt lịch Studio</a>
         </nav>
     </header>
 
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <div class="hero">
         <h1>SẢN XUẤT ÂM NHẠC CHUYÊN NGHIỆP</h1>
-        <p>Hệ sinh thái đào tạo Music Producer & Studio Private hàng đầu dành cho Artist & Producer nghiêm túc.</p>
-        <a href="membership.html" class="btn-primary">KHÁM PHÁ GÓI MEMBERSHIP</a>
-    </section>
-<!-- SECTON: MEMBERSHIP PRICING -->
-    <section class="membership-section">
-        <h2 class="section-title">STUDIO PRIVATE MEMBERSHIP</h2>
-        <p class="section-subtitle">Hệ sinh thái sáng tạo dành riêng cho Artist & Producer nghiêm túc</p>
+        <p>Hệ sinh thái đào tạo Producer & Studio Private chất lượng hàng đầu dành cho Artist & Producer nghiêm túc.</p>
+        <div class="hero-btns">
+            <a href="#membership" class="btn-primary">Khám phá gói Membership</a>
+            <a href="courses.html" class="btn-outline">Xem Khóa Học</a>
+        </div>
+    </div>
+
+    <!-- MEMBERSHIP SECTION -->
+    <section id="membership">
+        <div class="section-header">
+            <h2 class="section-title">STUDIO PRIVATE MEMBERSHIP</h2>
+            <p class="section-subtitle">Lựa chọn gói hội viên phù hợp với tần suất hoạt động âm nhạc của bạn</p>
+        </div>
 
         <div class="pricing-grid">
             <!-- GÓI 1: ROOKIE -->
             <div class="pricing-card">
-                <h3 class="card-title">1. ROOKIE MEMBERSHIP</h3>
-                <div class="price">499.000đ <span>/ tháng</span></div>
-                <p class="card-desc">Dành cho Artist mới bắt đầu.</p>
-                <ul class="features-list">
-                    <li>✓ 3 giờ thu âm / tháng</li>
-                    <li>✓ Mix & Master tiêu chuẩn</li>
-                    <li>✓ Giảm 10% khi book thêm giờ</li>
-                </ul>
+                <div>
+                    <h3 class="card-title">1. ROOKIE MEMBERSHIP</h3>
+                    <div class="price">499.000đ <span>/ tháng</span></div>
+                    <p class="card-desc">Dành cho Artist mới bắt đầu hoặc thu âm không quá thường xuyên.</p>
+                    <ul class="features-list">
+                        <li>✓ 3 giờ thu âm / tháng</li>
+                        <li>✓ Mix & Master tiêu chuẩn</li>
+                        <li>✓ Giảm 10% khi book thêm giờ</li>
+                    </ul>
+                </div>
                 <a href="booking.html" class="btn-card outline">ĐĂNG KÝ ROOKIE</a>
             </div>
 
-            <!-- GÓI 2: ARTIST (NỔI BẬT) -->
+            <!-- GÓI 2: ARTIST (POPULAR) -->
             <div class="pricing-card featured">
-                <div class="badge">BEST SELLER</div>
-                <h3 class="card-title">2. ARTIST MEMBERSHIP</h3>
-                <div class="price">1.490.000đ <span>/ tháng</span></div>
-                <p class="card-desc">Dành cho Rapper/Singer hoạt động thường xuyên.</p>
-                <ul class="features-list">
-                    <li>✓ 8 giờ thu âm / tháng</li>
-                    <li>✓ Giảm 15% các dịch vụ khác</li>
-                    <li>✓ Ưu tiên lịch Booking giờ đẹp</li>
-                </ul>
-                <a href="booking.html" class="btn-card primary">ĐĂNG KÝ ARTIST</a>
+                <div class="badge-popular">BEST SELLER</div>
+                <div>
+                    <h3 class="card-title">2. ARTIST MEMBERSHIP</h3>
+                    <div class="price">1.490.000đ <span>/ tháng</span></div>
+                    <p class="card-desc">Dành cho Rapper/Singer hoạt động âm nhạc thường xuyên.</p>
+                    <ul class="features-list">
+                        <li>✓ 8 giờ thu âm / tháng</li>
+                        <li>✓ Giảm 15% các dịch vụ khác</li>
+                        <li>✓ Ưu tiên lịch Booking giờ đẹp</li>
+                    </ul>
+                </div>
+                <a href="booking.html" class="btn-card solid">ĐĂNG KÝ ARTIST</a>
             </div>
 
             <!-- GÓI 3: PRO ARTIST -->
             <div class="pricing-card">
-                <h3 class="card-title">3. PRO ARTIST MEMBERSHIP</h3>
-                <div class="price">2.990.000đ <span>/ tháng</span></div>
-                <p class="card-desc">Dành cho Artist ra nhạc liên tục.</p>
-                <ul class="features-list">
-                    <li>✓ 15 giờ thu âm / tháng (Ưu tiên lịch đêm)</li>
-                    <li>✓ 2 bản Mix Vocal miễn phí</li>
-                    <li>✓ Giảm 20% Beat Lease / Exclusive</li>
-                    <li>✓ 1 buổi tư vấn định hướng phát triển</li>
-                    <li>✓ Được tham gia Networking nội bộ</li>
-                </ul>
-                <a href="booking.html" class="btn-card outline">TRỞ THÀNH PRO ARTIST</a>
+                <div>
+                    <h3 class="card-title">3. PRO ARTIST MEMBERSHIP</h3>
+                    <div class="price">2.990.000đ <span>/ tháng</span></div>
+                    <p class="card-desc">Dành cho Artist làm nhạc liên tục & ra sản phẩm chuyên nghiệp.</p>
+                    <ul class="features-list">
+                        <li>✓ 15 giờ thu âm / tháng (Ưu tiên lịch đêm)</li>
+                        <li>✓ 2 bản Mix Vocal miễn phí</li>
+                        <li>✓ Giảm 20% Beat Lease / Exclusive</li>
+                        <li>✓ 1 buổi tư vấn định hướng phát triển</li>
+                    </ul>
+                </div>
+                <a href="booking.html" class="btn-card outline">TRỜ THÀNH PRO ARTIST</a>
             </div>
         </div>
     </section>
-    <!-- SECTION: LOYALTY REWARDS (ƯU ĐÃI GẮN BÓ) -->
-    <section class="loyalty-section">
-        <div class="loyalty-container">
-            <h2 class="loyalty-title">CHƯƠNG TRÌNH ƯU ĐÃI HỘI VIÊN GẮN BÓ</h2>
-            <p class="loyalty-subtitle">Đồng hành càng lâu – Quyền lợi càng lớn tại Central Studio</p>
 
-            <div class="timeline-rewards">
-                <!-- MỐC 3 THÁNG -->
-                <div class="reward-card">
-                    <div class="badge-time">3 THÁNG</div>
-                    <div class="reward-icon">🎁</div>
-                    <h3 class="reward-title">TẶNG 1 GIỜ THU ÂM</h3>
-                    <p class="reward-desc">Dành cho hội viên duy trì gói liên tiếp trong 3 tháng.</p>
-                </div>
+    <!-- LOYALTY REWARDS -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">QUYỀN LỢI HỘI VIÊN GẮN BÓ</h2>
+            <p class="section-subtitle">Đồng hành càng lâu – Nhận ưu đãi đặc quyền càng lớn</p>
+        </div>
 
-                <!-- MỐC 6 THÁNG -->
-                <div class="reward-card">
-                    <div class="badge-time">6 THÁNG</div>
-                    <div class="reward-icon">🎛️</div>
-                    <h3 class="reward-title">TẶNG 1 BẢN MIX/MASTER</h3>
-                    <p class="reward-desc">Dành cho hội viên duy trì gói liên tiếp trong 6 tháng.</p>
-                </div>
-
-                <!-- MỐC 12 THÁNG -->
-                <div class="reward-card highlight">
-                    <div class="badge-time gold">12 THÁNG</div>
-                    <div class="reward-icon">🔥</div>
-                    <h3 class="reward-title">BEAT ĐỘC QUYỀN</h3>
-                    <p class="reward-desc">Tặng 1 bài sản xuất Beat độc quyền HOẶC Voucher 2.000.000đ.</p>
-                </div>
+        <div class="rewards-grid">
+            <div class="reward-card">
+                <div class="reward-tag">MỐC 3 THÁNG</div>
+                <div class="reward-icon">🎁</div>
+                <h3>TẶNG 1 GIỜ THU ÂM</h3>
+                <p style="color: var(--text-gray); font-size: 13px; margin-top: 5px;">Duy trì gói liên tiếp trong 3 tháng.</p>
             </div>
 
-            <!-- TRIẾT LÝ STUDIO -->
-            <div class="philosophy-box">
-                <h4>TẠI SAO CENTRAL STUDIO CHỈ PHỤC VỤ MEMBER?</h4>
-                <p>
-                    Tại Central Studio, chúng tôi không hướng đến mô hình cho thuê đại trà. Thay vào đó, chúng tôi xây dựng một cộng đồng sáng tạo dành riêng cho những thành viên thực sự nghiêm túc với âm nhạc và nghệ thuật.
-                </p>
+            <div class="reward-card">
+                <div class="reward-tag">MỐC 6 THÁNG</div>
+                <div class="reward-icon">🎛️</div>
+                <h3>TẶNG 1 BẢN MIX/MASTER</h3>
+                <p style="color: var(--text-gray); font-size: 13px; margin-top: 5px;">Duy trì gói liên tiếp trong 6 tháng.</p>
+            </div>
+
+            <div class="reward-card">
+                <div class="reward-tag">MỐC 12 THÁNG</div>
+                <div class="reward-icon">🔥</div>
+                <h3>BEAT ĐỘC QUYỀN</h3>
+                <p style="color: var(--text-gray); font-size: 13px; margin-top: 5px;">Sản xuất Beat độc quyền hoặc Voucher 2.000.000đ.</p>
             </div>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Central Academy & Studio Private. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
