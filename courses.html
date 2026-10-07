@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Mục Khóa Học Producer | Central Academy</title>
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --primary-red: #e50914;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--primary-red);
+        }
+
+        /* CONTAINER */
+        .courses-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .courses-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .courses-header h1 {
+            font-size: 36px;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .courses-header p {
+            color: var(--text-gray);
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* COURSES GRID */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-red);
+        }
+
+        .course-card.featured {
+            border: 2px solid var(--primary-red);
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.25);
+        }
+
+        .badge-slot {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-red);
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .course-body {
+            padding: 30px;
+        }
+
+        .course-level {
+            color: var(--primary-red);
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .course-title {
+            font-size: 22px;
+            margin: 0 0 15px 0;
+            color: var(--text-white);
+        }
+
+        .course-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 20px;
+        }
+
+        .course-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .course-features li {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-footer {
+            padding: 0 30px 30px 30px;
+        }
+
+        .btn-course {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            text-align: center;
+            background-color: transparent;
+            color: var(--primary-red);
+            border: 1px solid var(--primary-red);
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .btn-course:hover, .course-card.featured .btn-course {
+            background-color: var(--primary-red);
+            color: var(--text-white);
+        }
+
+        .course-card.featured .btn-course:hover {
+            background-color: #b80710;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            .courses-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Central Academy</a>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html" class="active">Khóa học</a>
+            <a href="membership.html">Membership</a>
+            <a href="booking.html">Đặt lịch Studio</a>
+        </nav>
+    </header>
+
+    <div class="courses-container">
+        <div class="courses-header">
+            <h1>LỘ TRÌNH ĐÀO TẠO MUSIC PRODUCER</h1>
+            <p>Được thiết kế từ cơ bản đến chuyên nghiệp dành cho người muốn làm chủ phần mềm, sản xuất âm nhạc thực chiến và xây dựng thương hiệu cá nhân.</p>
+        </div>
+
+        <div class="courses-grid">
+            <!-- KHÓA 1: PRODUCER BASIC -->
+            <div class="course-card">
+                <div class="course-body">
+                    <div class="course-level">CẤP ĐỘ 1 - NHẬP MÔN</div>
+                    <h3 class="course-title">PRODUCER BASIC</h3>
+                    <p class="course-desc">Dành cho người mới bắt đầu. Giúp bạn hiểu đúng tư duy sản xuất âm nhạc và làm chủ phần mềm (DAW).</p>
+                    <ul class="course-features">
+                        <li>✓ Tư duy âm nhạc & hòa âm cơ bản</li>
+                        <li>✓ Thành thạo phần mềm (FL Studio / Ableton)</li>
+                        <li>✓ Tạo Drum patterns, Melody, Hợp âm, Bass</li>
+                        <li>✓ Arrangement & Workflow làm nhạc chuẩn</li>
+                        <li>✓ Tự tin sản xuất sản phẩm âm nhạc cá nhân</li>
+                    </ul>
+                </div>
+                <div class="course-footer">
+                    <a href="booking.html" class="btn-course">ĐĂNG KÝ XẾP LỚP</a>
+                </div>
+            </div>
+
+            <!-- KHÓA 2: PRODUCER ADVANCE (NỔI BẬT) -->
+            <div class="course-card featured">
+                <div class="badge-slot">🔥 NỔI BẬT</div>
+                <div class="course-body">
+                    <div class="course-level">CẤP ĐỘ 2 - NÂNG CAO</div>
+                    <h3 class="course-title">PRODUCER ADVANCE</h3>
+                    <p class="course-desc">Tập trung nâng cao tư duy & kỹ thuật sản xuất âm nhạc chuyên nghiệp. Định hình Sound & Thương hiệu cá nhân.</p>
+                    <ul class="course-features">
+                        <li>✓ Kỹ thuật Sound Design chuyên sâu</li>
+                        <li>✓ Arrangement & Mix - Master cơ bản</li>
+                        <li>✓ Tối ưu Workflow làm nhạc nhanh & hiệu quả</li>
+                        <li>✓ Chuyên sâu các dòng nhạc: HipHop, RnB, Pop, Drill</li>
+                        <li>✓ Định hình cá tính, portfolio & sẵn sàng bước vào thị trường</li>
+                    </ul>
+                </div>
+                <div class="course-footer">
+                    <a href="booking.html" class="btn-course">ĐĂNG KÝ TƯ VẤN</a>
+                </div>
+            </div>
+
+            <!-- KHÓA 3: PRODUCER ULTIMATE -->
+            <div class="course-card">
+                <div class="badge-slot">VIP FULL SLOT</div>
+                <div class="course-body">
+                    <div class="course-level">CẤP ĐỘ 3 - THỰC CHIẾN</div>
+                    <h3 class="course-title">PRODUCER ULTIMATE</h3>
+                    <p class="course-desc">Đào tạo toàn diện từ A - Z. Dành cho người muốn theo đuổi con đường Producer chuyên nghiệp và kinh doanh âm nhạc.</p>
+                    <ul class="course-features">
+                        <li>✓ Toàn bộ kỹ thuật sản xuất âm nhạc nâng cao</li>
+                        <li>✓ Kỹ năng mềm: Pitching demo, Deal hợp đồng</li>
+                        <li>✓ Kỹ năng làm việc với khách hàng & Artist</li>
+                        <li>✓ Định hướng truyền thông & Quảng bá sản phẩm</li>
+                        <li>✓ Thực tập sản xuất sản phẩm thực chiến tại Studio</li>
+                    </ul>
+                </div>
+                <div class="course-footer">
+                    <a href="booking.html" class="btn-course">ĐĂNG KÝ XÉT TUYỂN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

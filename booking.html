@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Lịch Phòng Thu | Central Studio Private</title>
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --primary-red: #e50914;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--primary-red);
+        }
+
+        /* CONTAINER */
+        .booking-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .booking-header h1 {
+            font-size: 32px;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .booking-header p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* FORM STYLES */
+        .booking-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #0f0f0f;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-white);
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-red);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* RADIO BUTTONS DẠNG THẺ (CARD SELECTION) */
+        .membership-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .membership-option input {
+            display: none;
+        }
+
+        .membership-option label {
+            display: block;
+            background-color: #0f0f0f;
+            border: 1px solid var(--border-color);
+            padding: 15px 10px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 0;
+        }
+
+        .membership-option input:checked + label {
+            border-color: var(--primary-red);
+            background-color: rgba(229, 9, 20, 0.1);
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        /* NÚT SUBMIT */
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-red);
+            color: var(--text-white);
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #b80710;
+        }
+
+        .booking-footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* RESPONSIVE DESIGNS */
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .membership-options {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Central Academy</a>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html">Khóa học</a>
+            <a href="membership.html">Membership</a>
+            <a href="booking.html" class="active">Đặt lịch Studio</a>
+        </nav>
+    </header>
+
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1>ĐẶT LỊCH PHÒNG THU PRIVATE</h1>
+            <p>Dành riêng cho Hội viên Central Studio | Hotline Hỗ Trợ: 0372.340.043</p>
+        </div>
+
+        <div class="booking-card">
+ <form id="bookingForm">                
+    <!-- THÔNG TIN HỘI VIÊN -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname">HỌ TÊN / ARTIST NAME *</label>
+                        <input type="text" id="fullname" class="form-control" placeholder="Nhập tên nghệ sĩ" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">SỐ ĐIỆN THOẠI (ZALO) *</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="037xxxxxxx" required>
+                    </div>
+                </div>
+
+                <!-- CHỌN HẠNG THẺ -->
+                <div class="form-group">
+                    <label>HẠNG THẺ MEMBER CỦA BẠN *</label>
+                    <div class="membership-options">
+                        <div class="membership-option">
+                            <input type="radio" id="rookie" name="membership" value="Rookie" checked>
+                            <label for="rookie">ROOKIE (3h/tháng)</label>
+                        </div>
+                        <div class="membership-option">
+                            <input type="radio" id="artist" name="membership" value="Artist">
+                            <label for="artist">ARTIST (8h/tháng)</label>
+                        </div>
+                        <div class="membership-option">
+                            <input type="radio" id="pro" name="membership" value="Pro Artist">
+                            <label for="pro">PRO (15h/tháng)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NGÀY & GIỜ THU ÂM -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">NGÀY THU ÂM *</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">KHUNG GIỜ BẮT ĐẦU *</label>
+                        <select id="time" class="form-control" required>
+                            <option value="">-- Chọn khung giờ --</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                            <option value="21:00">09:00 PM (Ưu tiên Pro Member)</option>
+                            <option value="23:00">11:00 PM (Lịch Đêm - Pro Member)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SỐ GIỜ ĐẶT -->
+                <div class="form-group">
+                    <label for="hours">SỐ GIỜ ĐẶT THU (Tối thiểu 2 giờ) *</label>
+                    <select id="hours" class="form-control" required>
+                        <option value="2">2 Giờ</option>
+                        <option value="3">3 Giờ</option>
+                        <option value="4">4 Giờ</option>
+                        <option value="5">5 Giờ (Ca dài)</option>
+                    </select>
+                </div>
+
+                <!-- GHI CHÚ BỔ SUNG -->
+                <div class="form-group">
+                    <label for="note">GHI CHÚ / YÊU CẦU THIẾT BỊ HOẶC KỸ THUẬT VIÊN</label>
+                    <textarea id="note" class="form-control" rows="3" placeholder="Ví dụ: Cần Kỹ thuật viên hỗ trợ thu Vocal Rap, cần micro Neumann..."></textarea>
+                </div>
+
+                <!-- NÚT GỬI -->
+                <button type="submit" class="btn-submit">XÁC NHẬN ĐẶT LỊCH</button>
+            </form>
+
+            <div class="booking-footer">
+                📌 <i>Lưu ý: Hủy hoặc dời lịch vui lòng báo trước tối thiểu 12 tiếng để tránh bị trừ giờ vào Ví hội viên.</i>
+            </div>
+        </div>
+    </div>
+<script>
+        // Dán URL Web App của bạn vào giữa 2 dấu nháy đơn dưới đây:
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1C-_1l1EIkD8UaXYl1wSegfNr8iOIXmtgV17djnzrGhXHUrlQBpskHpRkM3G4h48ubg/exec';
+
+        const bookingForm = document.getElementById('bookingForm');
+        const submitBtn = document.querySelector('.btn-submit');
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            submitBtn.innerText = 'ĐANG XỬ LÝ...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                fullname: document.getElementById('fullname').value,
+                phone: document.getElementById('phone').value,
+                membership: document.querySelector('input[name="membership"]:checked').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                hours: document.getElementById('hours').value,
+                note: document.getElementById('note').value
+            };
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                alert('🎉 ĐẶT LỊCH THÀNH CÔNG!\nCentral Studio sẽ liên hệ xác nhận qua Zalo của bạn.');
+                bookingForm.reset();
+                submitBtn.innerText = 'XÁC NHẬN ĐẶT LỊCH';
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('❌ Có lỗi xảy ra. Vui lòng liên hệ Hotline: 0372.340.043');
+                submitBtn.innerText = 'XÁC NHẬN ĐẶT LỊCH';
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
