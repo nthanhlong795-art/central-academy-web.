@@ -1,438 +1,504 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central Academy | Hệ Sinh Thái Sản Xuất Âm Nhạc Chuyên Nghiệp</title>
+    <title>CENTRAL ACADEMY - Học Viện Sản Xuất Âm Nhạc & Producer Chuyên Nghiệp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,800;1,900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#FF0033',
+                            darkRed: '#990011',
+                            black: '#0A0A0C',
+                            cardBg: '#121216',
+                            cardBorder: '#26262E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'neon-red': '0 0 20px rgba(255, 0, 51, 0.4)',
+                        'neon-red-lg': '0 0 35px rgba(255, 0, 51, 0.6)'
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        :root {
-            --bg-dark: #0a0a0a;
-            --card-bg: #141414;
-            --primary-red: #e50914;
-            --primary-red-hover: #b80710;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-            --border-color: #262626;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background-color: #0A0A0C;
+            color: #E2E8F0;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
-        header {
-            background-color: rgba(10, 10, 10, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 18px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
+        .text-glow {
+            text-shadow: 0 0 12px rgba(255, 0, 51, 0.7);
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--primary-red);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
 
-        nav a {
-            color: var(--text-white);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.3s;
+        .card-gradient {
+            background: linear-gradient(180deg, rgba(26, 26, 32, 0.8) 0%, rgba(12, 12, 16, 0.95) 100%);
+            border: 1px solid rgba(255, 0, 51, 0.2);
+            transition: all 0.3s ease;
         }
 
-        nav a:hover, nav a.active {
-            color: var(--primary-red);
+        .card-gradient:hover {
+            border-color: rgba(255, 0, 51, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(255, 0, 51, 0.3);
         }
 
-        .btn-header {
-            background-color: var(--primary-red);
-            color: var(--text-white);
-            padding: 8px 18px;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF0033;
             border-radius: 4px;
-            margin-left: 20px;
         }
-
-        .btn-header:hover {
-            background-color: var(--primary-red-hover);
-            color: var(--text-white);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            padding: 100px 20px 80px;
-            text-align: center;
-            background: radial-gradient(circle at center, #220809 0%, var(--bg-dark) 70%);
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-gray);
-            max-width: 650px;
-            margin: 0 auto 30px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-red);
-            color: var(--text-white);
-            padding: 14px 28px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-red-hover);
-        }
-
-        .btn-outline {
-            border: 1px solid var(--border-color);
-            color: var(--text-white);
-            padding: 14px 28px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--text-white);
-        }
-
-        /* SECTION COMMON */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 32px;
-            color: var(--primary-red);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-
-        /* MEMBERSHIP PRICING GRID */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            align-items: stretch;
-        }
-
-        .pricing-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-red);
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--primary-red);
-            box-shadow: 0 0 25px rgba(229, 9, 20, 0.25);
-        }
-
-        .badge-popular {
-            position: absolute;
-            top: -14px;
-            right: 25px;
-            background-color: var(--primary-red);
-            color: var(--text-white);
-            font-size: 11px;
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-
-        .card-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .price span {
-            font-size: 14px;
-            color: var(--text-gray);
-            font-weight: normal;
-        }
-
-        .card-desc {
-            font-size: 14px;
-            color: var(--text-gray);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .features-list li {
-            font-size: 14px;
-            color: #ddd;
-            margin-bottom: 12px;
-        }
-
-        .btn-card {
-            display: block;
-            text-align: center;
-            padding: 12px 0;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .btn-card.outline {
-            border: 1px solid var(--primary-red);
-            color: var(--primary-red);
-        }
-
-        .btn-card.outline:hover {
-            background-color: var(--primary-red);
-            color: var(--text-white);
-        }
-
-        .btn-card.solid {
-            background-color: var(--primary-red);
-            color: var(--text-white);
-        }
-
-        .btn-card.solid:hover {
-            background-color: var(--primary-red-hover);
-        }
-
-        /* REWARDS TIMELINE */
-        .rewards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .reward-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .reward-icon {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .reward-tag {
-            color: var(--primary-red);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 40px 20px;
-            text-align: center;
-            color: var(--text-gray);
-            font-size: 14px;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CC0029;
         }
     </style>
 </head>
-<body>
+<body class="bg-brand-black text-white antialiased">
 
-    <!-- HEADER -->
-    <header>
-        <a href="index.html" class="logo">Central Academy</a>
-        <nav>
-            <a href="index.html" class="active">Trang chủ</a>
-            <a href="courses.html">Khóa học</a>
-            <a href="booking.html" class="btn-header">Đặt lịch Studio</a>
-        </nav>
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-2 group">
+                <div class="w-10 h-10 bg-brand-red flex items-center justify-center font-bold text-black text-xl rounded-sm transform group-hover:rotate-6 transition-transform">
+                    CA
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-lg tracking-widest leading-tight text-white group-hover:text-brand-red transition-colors">CENTRAL</span>
+                    <span class="text-xs text-brand-red font-semibold tracking-wider">ACADEMY</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold uppercase tracking-wider">
+                <a href="#hero" class="hover:text-brand-red transition-colors">Trang Chủ</a>
+                <a href="#courses" class="hover:text-brand-red transition-colors">Khóa Học</a>
+                <a href="#membership" class="hover:text-brand-red transition-colors">Membership</a>
+                <a href="#faq" class="hover:text-brand-red transition-colors">Hỏi Đáp</a>
+                <a href="booking.html" class="hover:text-brand-red transition-colors text-brand-red">Đặt Lịch Studio</a>
+            </nav>
+
+            <!-- CTA Button & Mobile Menu Toggle -->
+            <div class="flex items-center space-x-4">
+                <button onclick="openModal('Tư vấn chung')" class="hidden sm:inline-flex items-center px-5 py-2.5 bg-brand-red hover:bg-red-700 text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-all shadow-neon-red hover:scale-105 active:scale-95">
+                    Đăng Ký Ngay
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-white hover:text-brand-red focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-black border-b border-brand-cardBorder px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 text-sm uppercase font-semibold hover:text-brand-red">Trang Chủ</a>
+            <a href="#courses" class="block py-2 text-sm uppercase font-semibold hover:text-brand-red">Khóa Học</a>
+            <a href="#membership" class="block py-2 text-sm uppercase font-semibold hover:text-brand-red">Membership</a>
+            <a href="#faq" class="block py-2 text-sm uppercase font-semibold hover:text-brand-red">Hỏi Đáp</a>
+            <a href="booking.html" class="block py-2 text-sm uppercase font-semibold text-brand-red">Đặt Lịch Studio</a>
+            <button onclick="openModal('Tư vấn chung')" class="w-full mt-2 py-3 bg-brand-red text-white text-xs font-bold uppercase rounded-sm shadow-neon-red">
+                Đăng Ký Ngay
+            </button>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <div class="hero">
-        <h1>SẢN XUẤT ÂM NHẠC CHUYÊN NGHIỆP</h1>
-        <p>Hệ sinh thái đào tạo Producer & Studio Private chất lượng hàng đầu dành cho Artist & Producer nghiêm túc.</p>
-        <div class="hero-btns">
-            <a href="#membership" class="btn-primary">Khám phá gói Membership</a>
-            <a href="courses.html" class="btn-outline">Xem Khóa Học</a>
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen pt-24 pb-16 flex items-center justify-center bg-grid-pattern overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-red/20 rounded-full blur-[140px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-brand-red/10 border border-brand-red/30 rounded-full text-brand-red text-xs font-bold uppercase tracking-widest mb-6 animate-pulse">
+                <i class="fa-solid fa-compact-disc animate-spin"></i>
+                <span>STUDIO PRIVATE & PRODUCER HUB</span>
+            </div>
+
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase mb-4 leading-none italic">
+                CENTRAL <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-red-500 to-white text-glow">ACADEMY</span>
+                <span class="text-brand-red text-4xl sm:text-6xl md:text-7xl not-italic"> 2026</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg md:text-xl font-light mb-10 leading-relaxed">
+                Nơi kiến tạo các thế hệ Producer & Music Maker thực chiến tiếp theo. Làm chủ FL Studio, kỹ thuật Sound Design, Mix/Master và xây dựng thương hiệu cá nhân bứt phá trên thị trường.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#courses" class="w-full sm:w-auto px-8 py-4 bg-brand-red hover:bg-red-700 text-white font-extrabold uppercase text-sm tracking-wider rounded-sm shadow-neon-red hover:shadow-neon-red-lg transition-all transform hover:-translate-y-1">
+                    <i class="fa-solid fa-headphones mr-2"></i> Khám Phá Khóa Học
+                </a>
+                <button onclick="openModal('Đăng ký tư vấn Hero')" class="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-white/5 text-white border-2 border-white/20 hover:border-brand-red font-bold uppercase text-sm tracking-wider rounded-sm transition-all">
+                    Đăng Ký Tư Vấn
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t border-white/10 max-w-4xl mx-auto">
+                <div>
+                    <p class="text-3xl sm:text-4xl font-black text-brand-red">500+</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold mt-1">Học Viên Tốt Nghiệp</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-black text-white">100%</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold mt-1">Thực Chiến Sản Phẩm</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-black text-brand-red">03</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold mt-1">Cấp Độ Khóa Học</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-black text-white">24/7</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold mt-1">Hỗ Trợ Studio Private</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section (Full 3 Gói Membership) -->
+    <section id="membership" class="py-20 bg-brand-black border-t border-brand-cardBorder relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-extrabold uppercase tracking-widest text-xs">STUDIO PRIVATE</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-2 italic">CENTRAL MEMBERSHIP</h2>
+                <div class="w-16 h-1 bg-brand-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- GÓI 1: ROOKIE -->
+                <div class="relative group bg-gradient-to-b from-zinc-900 to-black p-8 rounded-lg border border-brand-cardBorder transition-all duration-300 hover:border-brand-red flex flex-col justify-between">
+                    <div>
+                        <div class="text-center pb-6 border-b border-zinc-800">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest">01. ROOKIE MEMBERSHIP</span>
+                            <div class="mt-4 flex items-baseline justify-center">
+                                <span class="text-4xl font-black text-white">499.000</span>
+                                <span class="text-lg font-bold text-brand-red">đ</span>
+                                <span class="text-gray-400 text-xs ml-1">/ THÁNG</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">Dành cho Artist & Producer mới bắt đầu</p>
+                        </div>
+
+                        <div class="py-6 space-y-4 text-xs text-gray-300">
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span><strong>3 giờ</strong> thu âm / tháng tại Studio</span></div>
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span>Hỗ trợ kỹ thuật <strong>Mix & Master</strong> cơ bản</span></div>
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span><strong>Giảm 10%</strong> chi phí book thêm giờ</span></div>
+                        </div>
+                    </div>
+                    <a href="booking.html" class="w-full text-center py-3.5 bg-transparent border border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-bold uppercase tracking-wider text-xs rounded-sm transition-all">
+                        Đăng Ký Rookie
+                    </a>
+                </div>
+
+                <!-- GÓI 2: ARTIST (HOT MEMBER) -->
+                <div class="relative group bg-gradient-to-b from-zinc-900 to-black p-8 rounded-lg border-2 border-brand-red shadow-neon-red transition-all duration-300 flex flex-col justify-between transform md:-translate-y-2">
+                    <div class="absolute top-0 right-0 bg-brand-red text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-lg tracking-wider">
+                        BEST SELLER
+                    </div>
+                    <div>
+                        <div class="text-center pb-6 border-b border-zinc-800">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest">02. ARTIST MEMBERSHIP</span>
+                            <div class="mt-4 flex items-baseline justify-center">
+                                <span class="text-4xl font-black text-white">1.490.000</span>
+                                <span class="text-lg font-bold text-brand-red">đ</span>
+                                <span class="text-gray-400 text-xs ml-1">/ THÁNG</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">Dành cho Rapper/Singer làm nhạc thường xuyên</p>
+                        </div>
+
+                        <div class="py-6 space-y-4 text-xs text-gray-300">
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span><strong>8 giờ</strong> thu âm / tháng tại Studio</span></div>
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span><strong>Giảm 15%</strong> chi phí các dịch vụ khác</span></div>
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span>Ưu tiên lịch Booking khung <strong>giờ đẹp</strong></span></div>
+                        </div>
+                    </div>
+                    <a href="booking.html" class="w-full text-center py-3.5 bg-brand-red hover:bg-red-700 text-white font-bold uppercase tracking-wider text-xs rounded-sm transition-all shadow-neon-red">
+                        Đăng Ký Artist
+                    </a>
+                </div>
+
+                <!-- GÓI 3: PRO ARTIST -->
+                <div class="relative group bg-gradient-to-b from-zinc-900 to-black p-8 rounded-lg border border-brand-cardBorder transition-all duration-300 hover:border-brand-red flex flex-col justify-between">
+                    <div>
+                        <div class="text-center pb-6 border-b border-zinc-800">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest">03. PRO ARTIST</span>
+                            <div class="mt-4 flex items-baseline justify-center">
+                                <span class="text-4xl font-black text-white">2.990.000</span>
+                                <span class="text-lg font-bold text-brand-red">đ</span>
+                                <span class="text-gray-400 text-xs ml-1">/ THÁNG</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">Dành cho Artist sản xuất sản phẩm liên tục</p>
+                        </div>
+
+                        <div class="py-6 space-y-4 text-xs text-gray-300">
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span><strong>15 giờ</strong> thu âm / tháng (Ưu tiên ca đêm)</span></div>
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span><strong>Tặng 2 bản Mix Vocal</strong> miễn phí</span></div>
+                            <div class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i><span><strong>Giảm 20%</strong> Beat Lease / Exclusive</span></div>
+                        </div>
+                    </div>
+                    <a href="booking.html" class="w-full text-center py-3.5 bg-transparent border border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-bold uppercase tracking-wider text-xs rounded-sm transition-all">
+                        Trở Thành Pro
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-zinc-950 border-t border-brand-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-extrabold uppercase tracking-widest text-xs">CHƯƠNG TRÌNH ĐÀO TẠO</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-2 italic">GIỚI THIỆU KHÓA HỌC</h2>
+                <p class="text-gray-400 text-sm mt-3">Lộ trình học chuẩn thực chiến từ cơ bản đến chuyên nghiệp đỉnh cao</p>
+                <div class="w-16 h-1 bg-brand-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Course 1: Ultimate -->
+                <div class="card-gradient rounded-lg p-6 flex flex-col justify-between relative overflow-hidden group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black text-brand-red uppercase tracking-wider px-2.5 py-1 bg-brand-red/10 border border-brand-red/30 rounded-sm">Lớp Chuyên Nghiệp</span>
+                            <i class="fa-solid fa-crown text-brand-red text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-black uppercase text-white mb-2 leading-snug">PRODUCER ULTIMATE</h3>
+                        <p class="text-xs text-brand-red font-semibold uppercase mb-4 tracking-wider">Sản Xuất A-Z Thực Chiến Thị Trường</p>
+                        
+                        <div class="space-y-3 text-xs text-gray-300 mb-6 leading-relaxed">
+                            <p>Khóa học Producer Ultimate là chương trình đào tạo toàn diện từ A-Z dành cho những học viên muốn theo đuổi con đường producer chuyên nghiệp.</p>
+                            <p>Đặc biệt, học viên có thời gian thực tập thực tế, gia nhập dự án thực chiến cho khách hàng thật để xây dựng thương hiệu cá nhân.</p>
+                        </div>
+                    </div>
+                    <button onclick="openModal('Khóa Producer Ultimate')" class="w-full py-3 bg-brand-red hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-all shadow-neon-red">
+                        Đăng Ký Khóa Ultimate
+                    </button>
+                </div>
+
+                <!-- Course 2: Advance -->
+                <div class="card-gradient rounded-lg p-6 flex flex-col justify-between relative overflow-hidden group border-brand-red/50">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black text-brand-red uppercase tracking-wider px-2.5 py-1 bg-brand-red/10 border border-brand-red/30 rounded-sm">Lớp Nâng Cao</span>
+                            <i class="fa-solid fa-sliders text-brand-red text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-black uppercase text-white mb-2 leading-snug">PRODUCER ADVANCE</h3>
+                        <p class="text-xs text-brand-red font-semibold uppercase mb-4 tracking-wider">Sản Xuất Nâng Cao & Branding</p>
+                        
+                        <div class="space-y-3 text-xs text-gray-300 mb-6 leading-relaxed">
+                            <p>Khóa học tập trung nâng cao tư duy & kỹ thuật làm chủ nhiều dòng nhạc hiện đại (HipHop, R&B, Trap, Drill...).</p>
+                            <p>Đào sâu vào Sound Design, Arrangement, Mixing - Mastering và định hình thương hiệu Producer.</p>
+                        </div>
+                    </div>
+                    <button onclick="openModal('Khóa Producer Advance')" class="w-full py-3 bg-brand-red hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-all shadow-neon-red">
+                        Đăng Ký Khóa Advance
+                    </button>
+                </div>
+
+                <!-- Course 3: Basic -->
+                <div class="card-gradient rounded-lg p-6 flex flex-col justify-between relative overflow-hidden group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black text-brand-red uppercase tracking-wider px-2.5 py-1 bg-brand-red/10 border border-brand-red/30 rounded-sm">Lớp Cơ Bản</span>
+                            <i class="fa-solid fa-wave-square text-brand-red text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-black uppercase text-white mb-2 leading-snug">PRODUCER BASIC</h3>
+                        <p class="text-xs text-brand-red font-semibold uppercase mb-4 tracking-wider">Sản Xuất Cơ Bản & Thành Thạo DAW</p>
+                        
+                        <div class="space-y-3 text-xs text-gray-300 mb-6 leading-relaxed">
+                            <p>Dành cho người mới bắt đầu. Giúp bạn hiểu đúng tư duy sản xuất âm nhạc và làm chủ phần mềm FL Studio từ nền tảng.</p>
+                            <p>Tạo beat hoàn chỉnh từ con số 0: Drum, Melody, Hợp âm, Bass và Workflow làm nhạc hiệu quả.</p>
+                        </div>
+                    </div>
+                    <button onclick="openModal('Khóa Producer Basic')" class="w-full py-3 bg-brand-red hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-all shadow-neon-red">
+                        Đăng Ký Khóa Basic
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-brand-black border-t border-brand-cardBorder">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-red font-extrabold uppercase tracking-widest text-xs">GIẢI ĐÁP THẮC MẮC</span>
+                <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight mt-2 italic text-glow">
+                    CÂU HỎI THƯỜNG GẶP KHI ĐĂNG KÝ
+                </h2>
+                <div class="w-16 h-1 bg-brand-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-brand-cardBg border border-brand-cardBorder rounded-sm overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-sm uppercase flex justify-between items-center hover:text-brand-red transition-colors focus:outline-none">
+                        <span>1. Chưa biết gì về Nhạc lý có học làm Producer được không?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-red transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-1" class="hidden px-5 pb-5 text-xs text-gray-400 leading-relaxed border-t border-white/5 pt-3">
+                        Hoàn toàn được! Giáo trình tại Central Academy được thiết kế từ con số 0. Chúng tôi truyền tải Nhạc lý ứng dụng cực kỳ trực quan trên FL Studio, giúp bạn nắm bắt giai điệu nhanh chóng.
+                    </div>
+                </div>
+
+                <div class="bg-brand-cardBg border border-brand-cardBorder rounded-sm overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-sm uppercase flex justify-between items-center hover:text-brand-red transition-colors focus:outline-none">
+                        <span>2. Chưa có máy tính cấu hình cao thì có theo học được không?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-red transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-2" class="hidden px-5 pb-5 text-xs text-gray-400 leading-relaxed border-t border-white/5 pt-3">
+                        Bạn có thể bắt đầu với laptop cá nhân cấu hình tầm trung. Ngoài ra, học viên được hỗ trợ sử dụng hệ thống máy tính & Studio Private tại Academy để thực hành.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black border-t border-white/10 py-12 text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-brand-red flex items-center justify-center font-bold text-black text-sm rounded-sm">
+                    CA
+                </div>
+                <span class="font-bold text-white tracking-widest">CENTRAL ACADEMY 2026</span>
+            </div>
+            <p class="text-center md:text-left">© 2026 Central Academy. All rights reserved. Central Studio Private.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Modal Form -->
+    <div id="registration-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-brand-cardBg border border-brand-red/50 rounded-md p-6 sm:p-8 max-w-md w-full mx-4 relative shadow-neon-red">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-brand-red text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <h3 class="text-xl font-black uppercase italic text-white mb-1">ĐĂNG KÝ TƯ VẤN</h3>
+            <p id="modal-subtitle" class="text-xs text-brand-red font-semibold mb-6">Khóa học: Producer Basic</p>
+
+            <form id="contactForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-300 mb-1">Họ & Tên *</label>
+                    <input type="text" id="fullname" required placeholder="Nhập tên của bạn" class="w-full bg-brand-black border border-white/10 rounded-sm px-4 py-2.5 text-xs focus:border-brand-red focus:outline-none text-white">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-300 mb-1">Số điện thoại / Zalo *</label>
+                    <input type="tel" id="phone" required placeholder="Nhập số điện thoại" class="w-full bg-brand-black border border-white/10 rounded-sm px-4 py-2.5 text-xs focus:border-brand-red focus:outline-none text-white">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-300 mb-1">Nội dung / Ghi chú</label>
+                    <input type="text" id="note" placeholder="Mong muốn cá nhân..." class="w-full bg-brand-black border border-white/10 rounded-sm px-4 py-2.5 text-xs focus:border-brand-red focus:outline-none text-white">
+                </div>
+                <button type="submit" id="submitBtn" class="w-full py-3 bg-brand-red hover:bg-red-700 text-white font-bold uppercase text-xs tracking-wider rounded-sm transition-all shadow-neon-red mt-2">
+                    Xác Nhận Đăng Ký
+                </button>
+            </form>
         </div>
     </div>
 
-    <!-- MEMBERSHIP SECTION -->
-    <section id="membership">
-        <div class="section-header">
-            <h2 class="section-title">STUDIO PRIVATE MEMBERSHIP</h2>
-            <p class="section-subtitle">Lựa chọn gói hội viên phù hợp với tần suất hoạt động âm nhạc của bạn</p>
-        </div>
+    <!-- Script xử lý Toggle & Gửi Form Google Sheet -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-        <div class="pricing-grid">
-            <!-- GÓI 1: ROOKIE -->
-            <div class="pricing-card">
-                <div>
-                    <h3 class="card-title">1. ROOKIE MEMBERSHIP</h3>
-                    <div class="price">499.000đ <span>/ tháng</span></div>
-                    <p class="card-desc">Dành cho Artist mới bắt đầu hoặc thu âm không quá thường xuyên.</p>
-                    <ul class="features-list">
-                        <li>✓ 3 giờ thu âm / tháng</li>
-                        <li>✓ Mix & Master tiêu chuẩn</li>
-                        <li>✓ Giảm 10% khi book thêm giờ</li>
-                    </ul>
-                </div>
-                <a href="booking.html" class="btn-card outline">ĐĂNG KÝ ROOKIE</a>
-            </div>
+        // FAQ Toggle
+        function toggleFaq(index) {
+            const answer = document.getElementById(`faq-answer-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
 
-            <!-- GÓI 2: ARTIST (POPULAR) -->
-            <div class="pricing-card featured">
-                <div class="badge-popular">BEST SELLER</div>
-                <div>
-                    <h3 class="card-title">2. ARTIST MEMBERSHIP</h3>
-                    <div class="price">1.490.000đ <span>/ tháng</span></div>
-                    <p class="card-desc">Dành cho Rapper/Singer hoạt động âm nhạc thường xuyên.</p>
-                    <ul class="features-list">
-                        <li>✓ 8 giờ thu âm / tháng</li>
-                        <li>✓ Giảm 15% các dịch vụ khác</li>
-                        <li>✓ Ưu tiên lịch Booking giờ đẹp</li>
-                    </ul>
-                </div>
-                <a href="booking.html" class="btn-card solid">ĐĂNG KÝ ARTIST</a>
-            </div>
+        // Modal Controls
+        const modal = document.getElementById('registration-modal');
+        const modalSubtitle = document.getElementById('modal-subtitle');
+        let currentCourse = 'Tư vấn chung';
 
-            <!-- GÓI 3: PRO ARTIST -->
-            <div class="pricing-card">
-                <div>
-                    <h3 class="card-title">3. PRO ARTIST MEMBERSHIP</h3>
-                    <div class="price">2.990.000đ <span>/ tháng</span></div>
-                    <p class="card-desc">Dành cho Artist làm nhạc liên tục & ra sản phẩm chuyên nghiệp.</p>
-                    <ul class="features-list">
-                        <li>✓ 15 giờ thu âm / tháng (Ưu tiên lịch đêm)</li>
-                        <li>✓ 2 bản Mix Vocal miễn phí</li>
-                        <li>✓ Giảm 20% Beat Lease / Exclusive</li>
-                        <li>✓ 1 buổi tư vấn định hướng phát triển</li>
-                    </ul>
-                </div>
-                <a href="booking.html" class="btn-card outline">TRỜ THÀNH PRO ARTIST</a>
-            </div>
-        </div>
-    </section>
+        function openModal(courseName) {
+            currentCourse = courseName;
+            modalSubtitle.innerText = `Chương trình: ${courseName}`;
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+        }
 
-    <!-- LOYALTY REWARDS -->
-    <section>
-        <div class="section-header">
-            <h2 class="section-title">QUYỀN LỢI HỘI VIÊN GẮN BÓ</h2>
-            <p class="section-subtitle">Đồng hành càng lâu – Nhận ưu đãi đặc quyền càng lớn</p>
-        </div>
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
 
-        <div class="rewards-grid">
-            <div class="reward-card">
-                <div class="reward-tag">MỐC 3 THÁNG</div>
-                <div class="reward-icon">🎁</div>
-                <h3>TẶNG 1 GIỜ THU ÂM</h3>
-                <p style="color: var(--text-gray); font-size: 13px; margin-top: 5px;">Duy trì gói liên tiếp trong 3 tháng.</p>
-            </div>
+        // KẾT NỐI FORM VỚI GOOGLE APPS SCRIPT
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1C-_1l1EIkD8UaXYl1wSegfNr8iOIXmtgV17djnzrGhXHUrlQBpskHpRkM3G4h48ubg/exec';
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
 
-            <div class="reward-card">
-                <div class="reward-tag">MỐC 6 THÁNG</div>
-                <div class="reward-icon">🎛️</div>
-                <h3>TẶNG 1 BẢN MIX/MASTER</h3>
-                <p style="color: var(--text-gray); font-size: 13px; margin-top: 5px;">Duy trì gói liên tiếp trong 6 tháng.</p>
-            </div>
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitBtn.innerText = 'ĐANG XỬ LÝ...';
+            submitBtn.disabled = true;
 
-            <div class="reward-card">
-                <div class="reward-tag">MỐC 12 THÁNG</div>
-                <div class="reward-icon">🔥</div>
-                <h3>BEAT ĐỘC QUYỀN</h3>
-                <p style="color: var(--text-gray); font-size: 13px; margin-top: 5px;">Sản xuất Beat độc quyền hoặc Voucher 2.000.000đ.</p>
-            </div>
-        </div>
-    </section>
+            const formData = {
+                fullname: document.getElementById('fullname').value,
+                phone: document.getElementById('phone').value,
+                membership: currentCourse,
+                date: new Date().toLocaleDateString('vi-VN'),
+                time: new Date().toLocaleTimeString('vi-VN'),
+                hours: '1',
+                note: document.getElementById('note').value
+            };
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Central Academy & Studio Private. All rights reserved.</p>
-    </footer>
-
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                alert('🎉 ĐĂNG KÝ THÀNH CÔNG!\nBộ phận tư vấn Central Academy sẽ liên hệ Zalo cho bạn trong thời gian sớm nhất.');
+                contactForm.reset();
+                closeModal();
+                submitBtn.innerText = 'XÁC NHẬN ĐĂNG KÝ';
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('❌ Có lỗi xảy ra, vui lòng thử lại sau.');
+                submitBtn.innerText = 'XÁC NHẬN ĐĂNG KÝ';
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
